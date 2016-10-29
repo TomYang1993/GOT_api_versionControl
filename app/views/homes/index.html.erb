@@ -1,0 +1,36 @@
+<h1> Getting data from myself !!</h1>
+
+
+<div ng-app="app">
+
+  <div ng-controller="get">
+     <h3>Search by name </h3><input type="text" placeholder="name" ng-model="search.name">
+     <h3>Search by house </h3><input type="text" placeholder="house" ng-model="search.house">
+     <br>
+
+
+
+
+
+  <table style="width:100%">
+  <tr>
+    <th>House  <button  ng-click="toggleOrder('house')">  Order by house </button></th>
+    <th>Name  <button  ng-click="toggleOrder('name')">  Order by name </button></th>
+    <th>Location</th>
+  </tr>
+  <tr ng-repeat="character in characters | filter:search | orderBy:orderAttribute:isReverse">
+    <td>{{character.house}}</td>
+    <td>{{character.name}}</td>
+    <td>{{character.location}}</td>
+  </tr>
+</table>
+
+
+
+     <input type="text" placeholder="name" ng-model="character.name">
+     <input type="text" placeholder="house" ng-model="character.house">
+     <input type="text" placeholder="location" ng-model="character.location">
+
+    <button ng-click="addCharacter(character)"> Add a character! </button>
+  </div>
+</div>
